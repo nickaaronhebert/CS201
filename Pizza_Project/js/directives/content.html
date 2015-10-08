@@ -1,0 +1,13 @@
+    <h2>{{ value.title }}</h2> 
+    <div class="row" ng-repeat="item in value.items" ng-controller="MainController">
+        <div class="item col-md-7">
+            <h3 class='name' ng-bind='item.name'></h3>
+            <p class="description" ng-bind="item.description"></p>
+        </div>
+        <div class="price col-md-3">
+            <p class="price" ng-bind="item.price | currency"> </p>
+        </div>
+        <div class="addToBillButton col-md-2">
+            <input type="checkbox" ng-model="x.done" style="margin-top: 40px;">Add To Bill
+        </div>
+    </div>

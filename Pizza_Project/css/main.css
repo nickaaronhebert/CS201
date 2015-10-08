@@ -1,6 +1,4 @@
 body, html {
-    background: url(bg.jpg);
-    background-size: 110px 69px;
     font-family: 'Playfair Display', serif;
 }
 
@@ -9,7 +7,7 @@ body p {
     font-size: 16px;
 }
 
-.header h1 {
+.header {
     background: #ce2c38;
     border-radius: 100%;
     box-shadow: 0 2px 5px rgba(0,0,0,0.25);
@@ -21,19 +19,21 @@ body p {
     z-index: 10;
     
 }
-
-.header h1 span {
-    color:#fff;
-    display: block;
-    font-size: 40px;
-    padding: 34px 0 0 0;
+.nav-pills li{
+    background-color: white;
 }
 
-.header h1 span+span {
-    color:#000;
+.header span {
+    color:#fff;
     display: block;
     font-size: 28px;
-    padding: 0;
+    padding: 40px 0 0 0;
+}
+
+.header span input {
+    color: black;
+    display: block;
+    font-size: 28px;
 }
 
 .main .container {
@@ -75,4 +75,83 @@ h3 {
     font-style: normal;
     margin: 26px 0 5px;
     text-align: right;
+}
+
+#myModal {
+    width: 90%;
+}
+
+.modal-dialog
+{
+    width: 75%;
+}
+
+#colorPickerImage {
+    margin-right:2px;
+}
+
+#selectedcolor {
+	border:1px solid #e3e3e3;
+	width:65%;
+	height:199px;
+	margin:auto;
+	background-color: rgb(255, 153, 255);
+}
+#selectedhexagon {
+     visibility: visible; 
+     position: relative; 
+     width: 21px; 
+     height: 21px; 
+     top: -109px; 
+     left: 144px; 
+     background-image: url(http://www.w3schools.com/tags/selectedcolor.gif);
+}
+#divpreview {
+	border:1px solid #e3e3e3;
+	width:80px;
+	height:20px;
+	margin:auto;
+	visibility:hidden;
+	background-color: rgb(255, 153, 255);
+}
+#colorhexDIV, #colorrgbDIV, #colornamDIV {
+	font-family:Consolas, 'Courier New', Courier, monospace;
+	text-align:center;
+	margin-top:6px;
+	height:24px;
+	font-size:18px;
+}
+table.colorshade {
+    width:100%;
+    margin:auto;
+    max-width:400px;
+}
+td.colorshade {
+	border-left:1px solid #e3e3e3;	
+}
+td.colorshadetxt {
+	padding-left:6px;
+	width:70px;
+	text-align:right;
+	font-family:Consolas, courier new;
+	font-size:110%;
+	border-left:1px solid #e3e3e3;	
+}
+#wronginputDIV {
+    text-align:left;
+    position:absolute;
+    margin:4px 10px;
+    color:#a94442;
+    display:none;
+}
+
+#col2 {
+    text-align:center;
+}
+.field_names{
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    margin: 26px 0 5px;
+    text-align: left;
 }

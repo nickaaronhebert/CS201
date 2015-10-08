@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<script src= "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<body ng-app="myApp" ng-controller="FamilyCtrl">
+
+<h2>My Family History</h2>
+
+<form ng-submit="AddFamily()">
+    Person<input type="text" ng-model="PersonInput" size="20" placeholder="Add New" required ><br>
+    Age At Death <input type="number" ng-model="AgeInput" size="20" placeholder="Add New" required><br>
+    Birthplace<input type="text" ng-model="BirthInput" size="20" placeholder="Add New" required ><br>
+    Family Line<select type="text" ng-model="LineInput" placeholder="Add New">
+                    <option value = "Hebert">Hebert</option>
+                    <option value = "Stillwell">Stillwell</option>
+                </select>
+    <input type="submit" value="Add New">
+</form>
+
+<br>
+
+<h1>Hebert Family Line</h1>
+<div ng-repeat="HebertList in HebertList">
+  <h4>Family Member: {{ HebertList.person }}  </h4>
+  <h4>Age At Death: {{ HebertList.age_death }}  </h4>
+  <h4>Birthplace: {{ HebertList.birthplace }}  </h4>
+  <h4>Family Line: {{ HebertList.line }}  </h4>
+</div>
+
+<h1>Stillwell Family List</h1>
+<div ng-repeat="StillwellList in StillwellList">
+  <h4>Family Member: {{ StillwellList.person }}  </h4>
+  <h4>Age At Death: {{ StillwellList.age_death }}  </h4>
+  <h4>Birthplace: {{ StillwellList.birthplace }}  </h4>
+  <h4>Family Line: {{ StillwellList.line }}  </h4>
+</div>
+
+<p><button ng-click="remove()">Remove marked</button></p>
+
+<script>
+var app = angular.module('myApp', []); 
+app.controller('FamilyCtrl', function($scope) {
+    $scope.HebertList = [
+      { person: 'Nick Hebert', 
+        age_death: "23", 
+        birthplace: "Dallas, TX",
+        line: "Hebert",
+        done: false
+      }
+      ];
+       $scope.StillwellList = [
+      { person: 'Madison Stillwell', 
+        age_death: "21", 
+        birthplace: "Portland, OR",
+        line: "Stillwell",
+        done: false
+      }
+      ];
+
+    $scope.AddFamily = function() { 
+        console.log("I am in the AddFamily Function");
+        if ($scope.LineInput == "Hebert")
+        {
+        $scope.HebertList.push({person:$scope.PersonInput, age_death:$scope.AgeInput, birthplace:$scope.BirthInput, line:$scope.LineInput, done:false});
+        }
+        if ($scope.LineInput == "Stillwell")
+        {
+        $scope.StillwellList.push({person:$scope.PersonInput, age_death:$scope.AgeInput, birthplace:$scope.BirthInput, line:$scope.LineInput, done:false});
+        }
+    };
+
+    $scope.remove = function() {
+        var oldList = $scope.FamilyList;
+        $scope.FamilyList = [];
+        angular.forEach(oldList, function(x) {
+            if (!x.done) $scope.todoList.push(x);
+        });
+    };
+});
+</script>
